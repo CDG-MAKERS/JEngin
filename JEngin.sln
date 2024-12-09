@@ -5,6 +5,10 @@ VisualStudioVersion = 17.12.35514.174 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JWindow", "JWindow\JWindow.vcxproj", "{678F00D3-2A12-4E5C-97C2-977125D93001}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JEngin_SOURCE", "JEngin_SOURCE\JEngin_SOURCE.vcxitems", "{A6B64324-5782-49A9-882A-D9FD7C3CAF46}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JEngin_Window", "JEngin_Window\JEngin_Window.vcxproj", "{6EB0ED05-3278-4403-99A0-AC8078B1310F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,8 +25,20 @@ Global
 		{678F00D3-2A12-4E5C-97C2-977125D93001}.Release|x64.Build.0 = Release|x64
 		{678F00D3-2A12-4E5C-97C2-977125D93001}.Release|x86.ActiveCfg = Release|Win32
 		{678F00D3-2A12-4E5C-97C2-977125D93001}.Release|x86.Build.0 = Release|Win32
+		{6EB0ED05-3278-4403-99A0-AC8078B1310F}.Debug|x64.ActiveCfg = Debug|x64
+		{6EB0ED05-3278-4403-99A0-AC8078B1310F}.Debug|x64.Build.0 = Debug|x64
+		{6EB0ED05-3278-4403-99A0-AC8078B1310F}.Debug|x86.ActiveCfg = Debug|Win32
+		{6EB0ED05-3278-4403-99A0-AC8078B1310F}.Debug|x86.Build.0 = Debug|Win32
+		{6EB0ED05-3278-4403-99A0-AC8078B1310F}.Release|x64.ActiveCfg = Release|x64
+		{6EB0ED05-3278-4403-99A0-AC8078B1310F}.Release|x64.Build.0 = Release|x64
+		{6EB0ED05-3278-4403-99A0-AC8078B1310F}.Release|x86.ActiveCfg = Release|Win32
+		{6EB0ED05-3278-4403-99A0-AC8078B1310F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		JEngin_SOURCE\JEngin_SOURCE.vcxitems*{6eb0ed05-3278-4403-99a0-ac8078b1310f}*SharedItemsImports = 4
+		JEngin_SOURCE\JEngin_SOURCE.vcxitems*{a6b64324-5782-49a9-882a-d9fd7c3caf46}*SharedItemsImports = 9
 	EndGlobalSection
 EndGlobal

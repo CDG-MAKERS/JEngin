@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{a6b64324-5782-49a9-882a-d9fd7c3caf46}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JGameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JTime.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JEntity.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JGameObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JTime.cpp" />
+  </ItemGroup>
+</Project>
