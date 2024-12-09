@@ -1,5 +1,8 @@
 #include "JSceneManager.h"
 
+std::map<const std::wstring, JScene*> JSceneManager::mScene = {};
+JScene* JSceneManager::mActiveScene = nullptr;
+
 JSceneManager::JSceneManager()
 {
 }

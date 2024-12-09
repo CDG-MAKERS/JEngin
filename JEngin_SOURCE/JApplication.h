@@ -20,8 +20,8 @@ public:
 private:
 	inline void clearReanderTarget();
 	inline void copyReanderTarget(HDC source, HDC dest);
-	inline void adjustWindowRect(HANDLE hwnd, UINT width, UINT height);
-
+	inline void adjustWindowRect(HWND hwnd, UINT width, UINT height);
+	inline void createBuffer(UINT width, UINT height);
 private:
 	HWND	mHwnd;
 	HDC		mHdc;

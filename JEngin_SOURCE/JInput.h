@@ -29,11 +29,13 @@ public:
 	static void Initailize();
 	static void Update();
 
-	//static void KeyUsing();
+	//static void keyStatus();
 
 	static bool GetKeyDown(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Down; }
 	static bool GetKeyUp(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Up; }
 	static bool GetKey(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Pressed; }
+private:
+	static inline void keyStatus(size_t keyNum);
 private:
 	static std::vector<Key> Keys;
 };

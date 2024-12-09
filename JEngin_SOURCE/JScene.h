@@ -7,11 +7,12 @@ class JScene : public JEntity
 public:
 	JScene();
 	~JScene();
-	void Initialize();
-	void Update();
-	void LateUpdate();
-	void Render(HDC hdc);
+	virtual void Initialize();
+	virtual void Update();
+	virtual void LateUpdate();
+	virtual void Render(HDC hdc);
+
+	void AddGameObject(JGameObject* gameObj);
 private:
 	std::vector<JGameObject*> mGameObjects;
 };
-

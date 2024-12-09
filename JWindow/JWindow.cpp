@@ -4,7 +4,7 @@
 #include "framework.h"
 #include "JWindow.h"
 #include "..//JEngin_SOURCE/JApplication.h"
-
+#include "..//JEngin_Window/JLoadScenes.h"
 JApplication application;
 
 #define MAX_LOADSTRING 100
@@ -135,6 +135,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   //Load Scenes
+   JLoadScenes();
 
    return TRUE;
 }

@@ -13,11 +13,26 @@ JGameObject::~JGameObject()
 
 void JGameObject::Update()
 {
+
+	if (JInput::GetKey(eKeyCode::a))
+	{
+		mX -= 100 * JTime::DeltaTime();
+	}
+
 	if (JInput::GetKey(eKeyCode::d))
 	{
 		mX += 100 * JTime::DeltaTime();
 	}
 
+	if (JInput::GetKey(eKeyCode::w))
+	{
+		mY -= 100 * JTime::DeltaTime();
+	}
+
+	if (JInput::GetKey(eKeyCode::s))
+	{
+		mY += 100 * JTime::DeltaTime();
+	}
 }
 void JGameObject::LateUpdate()
 {

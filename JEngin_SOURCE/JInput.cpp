@@ -6,8 +6,10 @@ std::vector<JInput::Key> JInput::Keys = {};
 
 int ASCII[(UINT)eKeyCode::end] =
 {
-		'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'D', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm',
-		VK_LEFT, VK_RIGHT, VK_DOWN, VK_UP
+		'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',
+		'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L',
+		'Z', 'X', 'C', 'V', 'B', 'N', 'M',
+		VK_LEFT, VK_RIGHT, VK_DOWN, VK_UP,
 };
 void JInput::Initailize()
 {
@@ -28,24 +30,29 @@ void JInput::Update()
 {
 	for (size_t i = 0; i < Keys.size(); i++)
 	{
-		//키가 눌렀는지 아닌지
-		if (GetAsyncKeyState(ASCII[i]) & 0x8000)
-		{
-			if (Keys[i].bPressed == true)
-				Keys[i].state = eKeyState::Pressed;
-			else
-				Keys[i].state = eKeyState::Down;
+		keyStatus(i);
+	}
+}
 
-			Keys[i].bPressed = true;
-		}
+inline void JInput::keyStatus(size_t keyNum)
+{
+	//키가 눌렀는지 아닌지
+	if (GetAsyncKeyState(ASCII[keyNum]) & 0x8000)
+	{
+		if (Keys[keyNum].bPressed == true)
+			Keys[keyNum].state = eKeyState::Pressed;
 		else
-		{
-			if (Keys[i].bPressed == true)
-				Keys[i].state = eKeyState::Up;
-			else
-				Keys[i].state = eKeyState::None;
+			Keys[keyNum].state = eKeyState::Down;
 
-			Keys[i].bPressed = false;
-		}
+		Keys[keyNum].bPressed = true;
+	}
+	else
+	{
+		if (Keys[keyNum].bPressed == true)
+			Keys[keyNum].state = eKeyState::Up;
+		else
+			Keys[keyNum].state = eKeyState::None;
+
+		Keys[keyNum].bPressed = false;
 	}
 }

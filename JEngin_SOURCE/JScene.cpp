@@ -1,6 +1,7 @@
 #include "JScene.h"
 
 JScene::JScene()
+	: mGameObjects{}
 {
 }
 
@@ -28,4 +29,9 @@ void JScene::Render(HDC hdc)
 {
 	for (JGameObject* gameObj : mGameObjects)
 		gameObj->Render(hdc);
+}
+
+void JScene::AddGameObject(JGameObject* gameObj)
+{
+	mGameObjects.push_back(gameObj);
 }
