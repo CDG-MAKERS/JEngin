@@ -14,8 +14,10 @@
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="JPlayScene.h" />
+    <ClInclude Include="JPlayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JPlayScene.cpp" />
+    <ClCompile Include="JPlayer.cpp" />
   </ItemGroup>
 </Project>

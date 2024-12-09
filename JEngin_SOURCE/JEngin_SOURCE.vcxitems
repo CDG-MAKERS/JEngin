@@ -16,20 +16,26 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JTransform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)JApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JTransform.cpp" />
   </ItemGroup>
 </Project>

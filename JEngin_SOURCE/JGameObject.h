@@ -1,5 +1,6 @@
 #pragma once
 #include "CommonInclude.h"
+#include "JComponent.h"
 
 //Actor
 class JGameObject 
@@ -8,22 +9,34 @@ public:
 	JGameObject();
 	~JGameObject();
 
-	void SetPosition(int x, int y)
+	virtual void Initialize();
+	virtual void Update();
+	virtual void LateUpdate();
+	virtual void Render(HDC hdc);
+
+	template <typename T>
+	T* AddComponent()
 	{
-		mX = x;
-		mY = y;
+		T* comp = new T();
+		comp->SetOwner(this);
+		mComponents.push_back(comp);
+		return comp;
 	}
 
-	int GetPositionX() { return mX; }
-	int GetPositionY() { return mY; }
-
-	void Update();
-	void LateUpdate();
-	void Render(HDC hdc);
-	
+	//왜 1개만? 몰루 테스트 코드 돌려볼것
+	template <typename T>
+	T* GetComponent()
+	{
+		T* component = nullptr;
+		for (JComponent* comp : mComponents)
+		{
+			component = dynamic_cast<T*>(comp);
+			if (component)
+				break;
+		}
+		return component;
+	}
 private:
-	float mX;
-	float mY;
-	int mSpeed;
+	std::vector<JComponent*> mComponents;
 };
 

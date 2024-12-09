@@ -2,18 +2,29 @@
 #include "JInput.h"
 #include "JTime.h"
 JGameObject::JGameObject()
-	: mX(0)
-	, mY(0)
 {
-
 }
 JGameObject::~JGameObject()
 {
+	//오브젝트가 날라갈때 할당 해제
+	for (JComponent* comp : mComponents)
+	{
+		delete comp;
+		comp = nullptr;	//디버깅 체크
+	}
+}
+
+void JGameObject::Initialize()
+{
+	for (JComponent* comp : mComponents)
+		comp->Initialize();
 }
 
 void JGameObject::Update()
 {
-
+	for (JComponent* comp : mComponents)
+		comp->Update();
+	/*
 	if (JInput::GetKey(eKeyCode::a))
 	{
 		mX -= 100 * JTime::DeltaTime();
@@ -33,16 +44,16 @@ void JGameObject::Update()
 	{
 		mY += 100 * JTime::DeltaTime();
 	}
+	*/
 }
 void JGameObject::LateUpdate()
 {
-
+	for (JComponent* comp : mComponents)
+		comp->LateUpdate();
 }
 void JGameObject::Render(HDC hdc)
 {
-	HBRUSH MyBrush = (HBRUSH)GetStockObject(GRAY_BRUSH);
-	HBRUSH OldBrush = (HBRUSH)SelectObject(hdc, MyBrush);
-	Rectangle(hdc, mX, mY, mX+50, mY+50);
-	SelectObject(hdc, OldBrush);
-	DeleteObject(MyBrush);
+
+	for (JComponent* comp : mComponents)
+		comp->Render(hdc);
 }

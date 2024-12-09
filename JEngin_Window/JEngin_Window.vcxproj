@@ -20,9 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="JLoadScenes.h" />
+    <ClInclude Include="JPlayer.h" />
     <ClInclude Include="JPlayScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="JPlayer.cpp" />
     <ClCompile Include="JPlayScene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
