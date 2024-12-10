@@ -22,10 +22,12 @@
     <ClInclude Include="JLoadScenes.h" />
     <ClInclude Include="JPlayer.h" />
     <ClInclude Include="JPlayScene.h" />
+    <ClInclude Include="JTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JPlayer.cpp" />
     <ClCompile Include="JPlayScene.cpp" />
+    <ClCompile Include="JTitleScene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

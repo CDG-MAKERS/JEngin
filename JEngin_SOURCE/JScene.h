@@ -1,6 +1,7 @@
 #pragma once
 #include "JGameObject.h"
 #include "JEntity.h"
+#include "JLayer.h"
 
 class JScene : public JEntity
 {
@@ -12,7 +13,11 @@ public:
 	virtual void LateUpdate();
 	virtual void Render(HDC hdc);
 
-	void AddGameObject(JGameObject* gameObj);
+	//¾À ÀÌµ¿¿ë
+	virtual void OnEnter();
+	virtual void OnExit();
+
+	void AddGameObject(JGameObject* gameObj, const eLayerType type);
 private:
-	std::vector<JGameObject*> mGameObjects;
+	std::vector<JLayer*> mLayers;
 };

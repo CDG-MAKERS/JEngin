@@ -3,7 +3,9 @@
 #include "JPlayer.h"
 #include "JTransform.h"
 #include "JSpriteRenderer.h"
-
+#include "JInput.h"
+#include "JTitleScene.h"
+#include "JSceneManager.h"
 JPlayScene::JPlayScene()
 {
 }
@@ -16,27 +18,18 @@ void JPlayScene::Initialize()
 {
 	//JGameObject* objc = new JGameObject;
 	{
-		JPlayer* pl = new JPlayer();
+		bg = new JPlayer();
 		JTransform* tr
-			= pl->AddComponent<JTransform>();
-		tr->SetPos(800, 450);
+			= bg->AddComponent<JTransform>();
+		tr->SetPos(Vector2(0, 0));
 		tr->SetName(L"TR");
 		JSpriteRenderer* sr
-			= pl->AddComponent<JSpriteRenderer>();
+			= bg->AddComponent<JSpriteRenderer>();
 		sr->SetName(L"SR");
-		AddGameObject(pl);
+		sr->ImageLoad(L"C:\\deving\\JEngin\\Resources\\aaa.jpg");
+		AddGameObject(bg, eLayerType::BackGround);
 	}
-	{
-		JPlayer* pl = new JPlayer();
-		JTransform* tr
-			= pl->AddComponent<JTransform>();
-		tr->SetPos(300, 450);
-		tr->SetName(L"TR");
-		JSpriteRenderer* sr
-			= pl->AddComponent<JSpriteRenderer>();
-		sr->SetName(L"SR");
-		AddGameObject(pl);
-	}
+
 }
 
 void JPlayScene::Update()
@@ -47,9 +40,26 @@ void JPlayScene::Update()
 void JPlayScene::LateUpdate()
 {
 	JScene::LateUpdate();
+	if (JInput::GetKeyDown(eKeyCode::n))
+	{
+		JSceneManager::LoadScene(L"TitleScene");
+	}
 }
 
 void JPlayScene::Render(HDC hdc)
 {
 	JScene::Render(hdc);
+	wchar_t str[50] = L"PlayScene Scene";
+	TextOut(hdc, 0, 0, str, 10);
+}
+
+void JPlayScene::OnEnter()
+{
+}
+
+void JPlayScene::OnExit()
+{
+	JTransform* tr
+		= bg->GetComponent<JTransform>();
+	tr->SetPos(Vector2(0, 0));
 }

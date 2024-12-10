@@ -11,9 +11,11 @@ JApplication::JApplication()
 	, mBackBitmap(nullptr)
 {
 }
+
 JApplication::~JApplication()
 {
 }
+
 void JApplication::Initialize(HWND hwnd, UINT width,UINT height)
 {
 	adjustWindowRect(hwnd, width, height);
@@ -24,6 +26,7 @@ void JApplication::Initialize(HWND hwnd, UINT width,UINT height)
 
 	JSceneManager::Initialize();
 }
+
 void JApplication::Run()
 {
 	Update();
@@ -39,6 +42,7 @@ void JApplication::Update()
 }
 void JApplication::LateUpdate()
 {
+	JSceneManager::LateUpdate();
 }
 void JApplication::Render()
 {

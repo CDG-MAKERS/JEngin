@@ -18,8 +18,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JEnum.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JLayer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JSpriteRenderer.h" />
@@ -32,6 +35,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JLayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JSpriteRenderer.cpp" />

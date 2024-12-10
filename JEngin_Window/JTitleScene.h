@@ -1,20 +1,14 @@
 #pragma once
 #include "..//JEngin_SOURCE//JScene.h"
-class JPlayScene : public JScene
+class JTitleScene : public JScene
 {
 public:
-	JPlayScene();
-	~JPlayScene();
+	JTitleScene();
+	~JTitleScene();
 
 	void Initialize()		override;
 	void Update()			override;
 	void LateUpdate()		override;
 	void Render(HDC hdc)	override;
-
-	void OnEnter()			override;
-	void OnExit()			override;
-
-private:
-	class JPlayer* bg;
 };
 

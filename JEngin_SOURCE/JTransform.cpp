@@ -1,8 +1,7 @@
 #include "JTransform.h"
 
 JTransform::JTransform()
-	: mX(0)
-	, mY(0)
+	: mPosition{}
 {
 }
 

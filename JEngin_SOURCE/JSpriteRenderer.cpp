@@ -23,18 +23,15 @@ void JSpriteRenderer::LateUpdate()
 
 void JSpriteRenderer::Render(HDC hdc)
 {
-	//브러쉬 생성
-	HBRUSH MyBrush = (HBRUSH)GetStockObject(RGB(255, 0, 255));
-	//내 브러쉬 dc 선택 기존 브러쉬 반환(OldBrush가 기존브러쉬가 된다)
-	HBRUSH OldBrush = (HBRUSH)SelectObject(hdc, MyBrush);
-
-	HPEN redPen = CreatePen(PS_SOLID, 2, RGB(rand() % 255, rand() % 255, rand() % 255));
-	HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
-	SelectObject(hdc, oldPen);
-
 	JTransform* tr = GetOwner()->GetComponent<JTransform>();
-	Rectangle(hdc, tr->GetX(), tr->GetY(), 100 + tr->GetX(), 100 + tr->GetY());
-	SelectObject(hdc, OldBrush);
-	DeleteObject(MyBrush);
-	DeleteObject(redPen);
+	Vector2 pos = tr->GetPosition();
+	Gdiplus::Graphics graphcis(hdc);
+	graphcis.DrawImage(mImage, Gdiplus::Rect(pos.x, pos.y, mWidth, mHeight));
+}
+
+void JSpriteRenderer::ImageLoad(const std::wstring& path)
+{
+	mImage = Gdiplus::Image::FromFile(path.c_str());
+	mWidth = mImage->GetWidth();
+	mHeight = mImage->GetHeight();
 }

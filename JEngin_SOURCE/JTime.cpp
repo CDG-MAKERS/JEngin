@@ -32,8 +32,8 @@ void JTime::Render(HDC hdc)
 	static float time = 0.0f;
 	time += DeltaTimeValue;
 	float fps = 1.0f / DeltaTimeValue;
-	wchar_t str[100] = L"";
-	swprintf_s(str, 100,L"%d", (int)fps);
-	int len = wcsnlen_s(str, 100);
+	wchar_t str[50] = L"";
+	swprintf_s(str, 50,L"%d", (int)fps);
+	int len = wcsnlen_s(str, 50);
 	TextOut(hdc, 0, 0, str, len);
 }
