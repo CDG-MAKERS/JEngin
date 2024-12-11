@@ -11,6 +11,9 @@
     <Filter Include="Contents">
       <UniqueIdentifier>{8cf12438-744f-4421-a59f-7e13923f2f22}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{f3f80259-2f60-4139-91b5-525572d7ec54}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="JLoadScenes.h">
@@ -25,6 +28,12 @@
     <ClInclude Include="JPlayer.h">
       <Filter>Contents</Filter>
     </ClInclude>
+    <ClInclude Include="JLoadResources.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="JPlayerScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JPlayScene.cpp">
@@ -35,6 +44,9 @@
     </ClCompile>
     <ClCompile Include="JPlayer.cpp">
       <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="JPlayerScript.cpp">
+      <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

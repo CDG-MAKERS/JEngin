@@ -1,8 +1,11 @@
 #include "JGameObject.h"
 #include "JInput.h"
 #include "JTime.h"
+#include "JTransform.h"
 JGameObject::JGameObject()
 {
+	mComponents.resize((UINT)enums::eComponentType::End);
+	initTransform();
 }
 JGameObject::~JGameObject()
 {
@@ -17,43 +20,41 @@ JGameObject::~JGameObject()
 void JGameObject::Initialize()
 {
 	for (JComponent* comp : mComponents)
+	{
+		if (comp == nullptr) continue;
 		comp->Initialize();
+	}
+
 }
 
 void JGameObject::Update()
 {
 	for (JComponent* comp : mComponents)
+	{
+		if (comp == nullptr) continue;
 		comp->Update();
-	/*
-	if (JInput::GetKey(eKeyCode::a))
-	{
-		mX -= 100 * JTime::DeltaTime();
 	}
 
-	if (JInput::GetKey(eKeyCode::d))
-	{
-		mX += 100 * JTime::DeltaTime();
-	}
-
-	if (JInput::GetKey(eKeyCode::w))
-	{
-		mY -= 100 * JTime::DeltaTime();
-	}
-
-	if (JInput::GetKey(eKeyCode::s))
-	{
-		mY += 100 * JTime::DeltaTime();
-	}
-	*/
 }
 void JGameObject::LateUpdate()
 {
 	for (JComponent* comp : mComponents)
+	{
+		if (comp == nullptr) continue;
 		comp->LateUpdate();
+	}
 }
 void JGameObject::Render(HDC hdc)
 {
 
 	for (JComponent* comp : mComponents)
+	{
+		if (comp == nullptr) continue;
 		comp->Render(hdc);
+	}
+}
+
+void JGameObject::initTransform()
+{
+	AddComponent<JTransform>();
 }

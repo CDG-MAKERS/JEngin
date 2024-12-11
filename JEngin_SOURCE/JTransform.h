@@ -14,7 +14,7 @@ public:
 	void LateUpdate()		override;
 	void Render(HDC hdc)	override;
 
-	void SetPos(Vector2 pos)	{ mPosition.x = pos.x; mPosition.y = pos.y; }
+	void SetPosition(Vector2 position)	{ mPosition.x = position.x; mPosition.y = position.y; }
 	Vector2 GetPosition()		{ return mPosition; }
 
 private:

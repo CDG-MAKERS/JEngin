@@ -1,7 +1,8 @@
 #include "JTransform.h"
 
 JTransform::JTransform()
-	: mPosition{}
+	: JComponent(enums::eComponentType::Transform)
+	, mPosition(Vector2::Zero)
 {
 }
 

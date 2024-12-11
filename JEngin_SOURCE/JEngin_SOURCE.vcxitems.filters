@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)JApplication.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)JSpriteRenderer.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)JTransform.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JEntity.cpp">
       <Filter>Common</Filter>
     </ClCompile>
@@ -31,11 +28,35 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JTransform.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JResource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JResources.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JTexture.cpp">
+      <Filter>Resource\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JApplication.cpp">
+      <Filter>High Level Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JScript.cpp">
+      <Filter>Component\Scripte</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JCamera.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JRenderer.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JSpriteRenderer.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)JApplication.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)JSpriteRenderer.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)JTransform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
       <Filter>Common</Filter>
     </ClInclude>
@@ -69,6 +90,36 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JObject.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JTransform.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JResource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JResources.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JTexture.h">
+      <Filter>Resource\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JApplication.h">
+      <Filter>High Level Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JScript.h">
+      <Filter>Component\Scripte</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JCamera.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JRenderer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JSpriteRenderer.h">
+      <Filter>Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -88,6 +139,21 @@
     </Filter>
     <Filter Include="Scene">
       <UniqueIdentifier>{b68990d2-1183-49b3-9c2a-9444df19cf38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{94af2d95-268b-4c0d-bf43-f2dac80137d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Texture">
+      <UniqueIdentifier>{06d76e30-47e9-40ce-a57b-0b4c1646e97e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="High Level Interface">
+      <UniqueIdentifier>{17e28c53-2a86-4e8b-a36c-5dc59bbb0b4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Scripte">
+      <UniqueIdentifier>{56f30ab5-5f3c-40af-806e-d0fc7bc1050d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{43d207a8-92a1-4690-9e98-ab476c0431dd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

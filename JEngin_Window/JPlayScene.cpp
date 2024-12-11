@@ -6,6 +6,12 @@
 #include "JInput.h"
 #include "JTitleScene.h"
 #include "JSceneManager.h"
+#include "JObject.h"
+#include "JTexture.h"
+#include "JResources.h"
+#include "JPlayerScript.h"
+#include "JCamera.h"
+#include "JRenderer.h"
 JPlayScene::JPlayScene()
 {
 }
@@ -16,19 +22,32 @@ JPlayScene::~JPlayScene()
 
 void JPlayScene::Initialize()
 {
-	//JGameObject* objc = new JGameObject;
-	{
-		bg = new JPlayer();
-		JTransform* tr
-			= bg->AddComponent<JTransform>();
-		tr->SetPos(Vector2(0, 0));
-		tr->SetName(L"TR");
-		JSpriteRenderer* sr
-			= bg->AddComponent<JSpriteRenderer>();
-		sr->SetName(L"SR");
-		sr->ImageLoad(L"C:\\deving\\JEngin\\Resources\\aaa.jpg");
-		AddGameObject(bg, eLayerType::BackGround);
-	}
+	// main camera
+	JGameObject* camera = object::Instantiate<JGameObject>(enums::eLayerType::None, Vector2(810.0f, 460.0f));
+	JCamera* cameraComp = camera->AddComponent<JCamera>();
+	JRenderer::mainCamera = cameraComp;
+	//camera->AddComponent<JPlayerScript>();
+
+	mPlayer = object::Instantiate<JPlayer>(enums::eLayerType::Player, Vector2(800.0f, 450.0f));
+	JSpriteRenderer* sr
+		= mPlayer->AddComponent<JSpriteRenderer>();
+	sr->SetSize(Vector2(0.2f, 0.2f));
+	mPlayer->AddComponent<JPlayerScript>();
+
+	graphcis::JTexture* marioTexture =
+		JResources::Find<graphcis::JTexture>(L"Mario");
+	sr->SetTexture(marioTexture);
+
+	JGameObject* bg = object::Instantiate<JGameObject>
+		(enums::eLayerType::BackGround);
+	JSpriteRenderer* bgSr
+		= bg->AddComponent<JSpriteRenderer>();
+	graphcis::JTexture* bgTexture =
+		JResources::Find<graphcis::JTexture>(L"Map");
+	bgSr->SetTexture(bgTexture);
+		
+	JScene::Initialize();
+
 
 }
 
@@ -59,7 +78,7 @@ void JPlayScene::OnEnter()
 
 void JPlayScene::OnExit()
 {
-	JTransform* tr
-		= bg->GetComponent<JTransform>();
-	tr->SetPos(Vector2(0, 0));
+	//JTransform* tr
+	//	= bg->GetComponent<JTransform>();
+	//tr->SetPosition(Vector2(0, 0));
 }

@@ -3,8 +3,8 @@
 JScene::JScene()
 	: mLayers{}
 {
-	mLayers.resize((UINT)eLayerType::Max);
-	for (size_t i = 0; i < (UINT)eLayerType::Max; i++)
+	mLayers.resize((UINT)enums::eLayerType::Max);
+	for (size_t i = 0; i < (UINT)enums::eLayerType::Max; i++)
 	{
 		mLayers[i] = new JLayer();
 	}
@@ -46,7 +46,7 @@ void JScene::OnExit()
 {
 }
 
-void JScene::AddGameObject(JGameObject* gameObj, const eLayerType type)
+void JScene::AddGameObject(JGameObject* gameObj, const enums::eLayerType type)
 {
 	mLayers[(UINT)type]->AddGameObject(gameObj);
 }

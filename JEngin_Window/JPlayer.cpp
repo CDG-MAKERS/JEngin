@@ -15,13 +15,6 @@ void JPlayer::Update()
 void JPlayer::LateUpdate()
 {
 	JGameObject::LateUpdate();
-	if (JInput::GetKey(eKeyCode::Right))
-	{
-		JTransform* tr = GetComponent<JTransform>();
-		Vector2 pos = tr->GetPosition();
-		pos.x += 100.0f * JTime::DeltaTime();
-		tr->SetPos(pos);
-	}
 }
 
 void JPlayer::Render(HDC hdc)

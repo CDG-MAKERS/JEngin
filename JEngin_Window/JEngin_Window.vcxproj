@@ -19,13 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="JLoadResources.h" />
     <ClInclude Include="JLoadScenes.h" />
     <ClInclude Include="JPlayer.h" />
+    <ClInclude Include="JPlayerScript.h" />
     <ClInclude Include="JPlayScene.h" />
     <ClInclude Include="JTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JPlayer.cpp" />
+    <ClCompile Include="JPlayerScript.cpp" />
     <ClCompile Include="JPlayScene.cpp" />
     <ClCompile Include="JTitleScene.cpp" />
   </ItemGroup>

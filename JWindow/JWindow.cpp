@@ -5,6 +5,8 @@
 #include "JWindow.h"
 #include "..//JEngin_SOURCE/JApplication.h"
 #include "..//JEngin_Window/JLoadScenes.h"
+#include "..//JEngin_Window/JLoadResources.h"
+
 JApplication application;
 
 ULONG_PTR gpToken;
@@ -143,6 +145,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL); //gdiplus 생성
    //Load Scenes
+   JLoadResources(); // 리소스를 먼저 로드 해야 씬에서 사용가능
    JLoadScenes();
 
    return TRUE;

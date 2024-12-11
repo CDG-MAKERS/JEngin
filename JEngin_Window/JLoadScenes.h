@@ -2,6 +2,8 @@
 #include "..//JEngin_SOURCE//JSceneManager.h"
 #include "JPlayScene.h"
 #include "JTitleScene.h"
+
+
 void JLoadScenes()
 {
 	JSceneManager::CreateScene<JTitleScene>(L"TitleScene");

@@ -20,6 +20,8 @@ public:
 		T* comp = new T();
 		comp->Initialize();
 		comp->SetOwner(this);
+
+		mComponents[(UINT)comp->GetType()] = comp;
 		mComponents.push_back(comp);
 		return comp;
 	}
@@ -37,6 +39,8 @@ public:
 		}
 		return component;
 	}
+private:
+	void initTransform();
 private:
 	std::vector<JComponent*> mComponents;
 };

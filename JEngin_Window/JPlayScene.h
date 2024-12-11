@@ -15,6 +15,6 @@ public:
 	void OnExit()			override;
 
 private:
-	class JPlayer* bg;
+	class JPlayer* mPlayer;
 };
 

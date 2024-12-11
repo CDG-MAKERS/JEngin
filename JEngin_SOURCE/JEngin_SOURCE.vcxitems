@@ -16,6 +16,7 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JEnum.h" />
@@ -23,23 +24,35 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JTransform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JTexture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)JApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JSpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JTransform.cpp" />
   </ItemGroup>

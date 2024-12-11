@@ -1,7 +1,8 @@
 #include "JComponent.h"
 
-JComponent::JComponent()
-	:mOwner(nullptr)
+JComponent::JComponent(enums::eComponentType type)
+	: mOwner(nullptr)
+	, mType(type)
 {
 }
 

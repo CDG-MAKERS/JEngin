@@ -17,6 +17,9 @@ public:
 	void LateUpdate();
 	void Render();
 
+	HDC GetHdc() { return mHdc; }
+	UINT GetWidth() { return mWidth; }
+	UINT GetHeight() { return mHeight; }
 private:
 	inline void clearReanderTarget();
 	inline void copyReanderTarget(HDC source, HDC dest);

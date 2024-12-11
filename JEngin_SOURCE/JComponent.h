@@ -7,7 +7,8 @@ class JComponent : public JEntity
 {
 
 public:
-	JComponent();
+	JComponent(enums::eComponentType type);
+	JComponent() = delete;
 	~JComponent();
 
 	virtual void Initialize();
@@ -17,7 +18,9 @@ public:
 
 	void SetOwner(JGameObject* owner)	{ mOwner = owner; }
 	JGameObject* GetOwner()				{ return mOwner; }
+	enums::eComponentType GetType() { return mType; }
 private:
 	JGameObject* mOwner;
+	enums::eComponentType mType;
 };
 
