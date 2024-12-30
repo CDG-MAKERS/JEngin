@@ -14,7 +14,7 @@ public:
 	virtual void LateUpdate()override;
 	virtual void Render(HDC hdc)override;
 
-
+	void SetTarget(JGameObject* target) { mTarget = target; }
 
 private:
 	//std::vector<JGameObject*> mGameObjects;

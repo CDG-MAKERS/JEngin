@@ -2,10 +2,22 @@
 #include "CommonInclude.h"
 #include "JComponent.h"
 
+
 //Actor
 class JGameObject 
 {
 public:
+	//friend void object::Destory(JGameObject* obj);
+
+	enum class eState
+	{
+		Active,
+		Paused,
+		Dead,
+		End
+	};
+
+
 	JGameObject();
 	~JGameObject();
 
@@ -13,6 +25,7 @@ public:
 	virtual void Update();
 	virtual void LateUpdate();
 	virtual void Render(HDC hdc);
+	virtual void Destroy();
 
 	template <typename T>
 	T* AddComponent()
@@ -39,9 +52,21 @@ public:
 		}
 		return component;
 	}
+
+	eState GetActive() { return mState; }
+	void SetActive(bool power)
+	{
+		if (power == true) mState = eState::Active;
+		if (power == false) mState = eState::Paused;
+	}
+
+
 private:
-	void initTransform();
+	void initializeTransform();
+	void Death() { mState = eState::Dead; }
+
 private:
+	eState mState;
 	std::vector<JComponent*> mComponents;
 };
 

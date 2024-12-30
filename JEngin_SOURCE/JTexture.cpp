@@ -1,14 +1,46 @@
 #include "JTexture.h"
 #include "JApplication.h"
+#include "JResources.h"
 
 //해당 전역변수가 존재함을 알림
 extern JApplication application;
 
-namespace graphcis
+namespace graphics
 {
+	JTexture* JTexture::Create(const std::wstring& name, UINT width, UINT height)
+	{
+		JTexture* image = JResources::Find<JTexture>(name);
+		if (image)
+			return image;
+
+		image = new JTexture();
+		image->SetName(name);
+		image->SetWidth(width);
+		image->SetHeight(height);
+
+		HDC hdc = application.GetHdc();
+		HWND hwnd = application.GetHwnd();
+
+		image->mBitmap = CreateCompatibleBitmap(hdc, width, height);
+		image->mHdc = CreateCompatibleDC(hdc);
+
+
+		HBRUSH transparentBrush = (HBRUSH)GetStockObject(NULL_BRUSH);
+		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, transparentBrush);
+		Rectangle(image->mHdc, -1, -1, image->GetWidth() + 1, image->GetHeight() + 1);
+		SelectObject(hdc, oldBrush);
+
+		HBITMAP oldBitmap = (HBITMAP)SelectObject(image->mHdc, image->mBitmap);
+		DeleteObject(oldBitmap);
+
+		JResources::Insert(name + L"Image", image);
+
+		return image;
+	}
 
 	JTexture::JTexture()
 		:JResource(enums::eResourceType::Texture)
+		, mbAlpha(false)
 	{
 	}
 

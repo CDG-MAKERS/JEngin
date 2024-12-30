@@ -33,6 +33,23 @@ public:
 		mResources.insert(std::make_pair(key, resource));
 		return resource;
 	}
+	static void Insert(const std::wstring& key, JResource* resource)
+	{
+		if (key == L"")
+			return;
+		if (resource == nullptr)
+			return;
+
+		mResources.insert(std::make_pair(key, resource));
+	}
+	static void Release()
+	{
+		for (auto& iter : mResources)
+		{
+			delete iter.second;
+			iter.second = nullptr;
+		}
+	}
 
 private:
 

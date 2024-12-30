@@ -26,6 +26,8 @@ public:
 	static void Update();
 	static void LateUpdate();
 	static void Render(HDC hdc);
+	static void Destroy();
+	static void Release();
 private:
 	//배열보다 트리 log2
 	//static std::vector<JScene*> mScene;

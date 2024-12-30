@@ -11,15 +11,13 @@ void JTime::Initailize()
 	//프로그램이 실행될 때 진동수
 	QueryPerformanceCounter(&PrevFrequency);
 
-
-
 }
 
 void JTime::Update()
 {
 
 	//시작부터 끝까지 진동수를 알고싶어
-	QueryPerformanceCounter(&CurrentFrequency);
+	QueryPerformanceCounter(&CurrentFrequency); //고해상도 타이머의 현재 카운터 값을 가져옵니다.
 	float differenceFrequency = static_cast<float>(CurrentFrequency.QuadPart - PrevFrequency.QuadPart);
 
 	DeltaTimeValue = differenceFrequency / static_cast<float>(CpuFrequency.QuadPart);

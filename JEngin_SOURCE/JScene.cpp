@@ -38,6 +38,18 @@ void JScene::Render(HDC hdc)
 		layer->Render(hdc);
 }
 
+void JScene::Destroy()
+{
+
+	for (JLayer* layer : mLayers)
+	{
+		if (layer == nullptr)
+			continue;
+
+		layer->Destroy();
+	}
+}
+
 void JScene::OnEnter()
 {
 }

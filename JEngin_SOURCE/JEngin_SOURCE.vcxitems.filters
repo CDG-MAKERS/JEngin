@@ -55,6 +55,16 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JSpriteRenderer.cpp">
       <Filter>Component</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JAnimator.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JAnimation.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JCollisionManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBoxCollider2D.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JCircleCollider2D.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JCollider.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
@@ -120,6 +130,16 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JSpriteRenderer.h">
       <Filter>Component</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JAnimator.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JAnimation.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JCollisionManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBoxCollider2D.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JCircleCollider2D.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JCollider.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">

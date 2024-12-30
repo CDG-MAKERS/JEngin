@@ -1,6 +1,6 @@
 #pragma once
 #include "JEntity.h"
-class JResource : public JEntity //추상
+class JResource abstract : public JEntity //추상
 {
 public:
 	JResource(enums::eResourceType type);

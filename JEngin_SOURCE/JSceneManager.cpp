@@ -46,3 +46,17 @@ void JSceneManager::Render(HDC hdc)
 {
 	mActiveScene->Render(hdc);
 }
+
+void JSceneManager::Destroy()
+{
+	mActiveScene->Destroy();
+}
+
+void JSceneManager::Release()
+{
+	for (auto& iter : mScene)
+	{
+		delete iter.second;
+		iter.second = nullptr;
+	}
+}

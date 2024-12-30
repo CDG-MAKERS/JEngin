@@ -15,8 +15,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JAnimation.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBoxCollider2D.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JCamera.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JCircleCollider2D.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JCollider.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JCollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JEnum.h" />
@@ -37,8 +43,14 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JTexture.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JAnimation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBoxCollider2D.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JCamera.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JCircleCollider2D.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JCollider.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JCollisionManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JGameObject.cpp" />

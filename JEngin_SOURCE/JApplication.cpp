@@ -2,6 +2,8 @@
 #include "JInput.h"
 #include "JTime.h"
 #include "JSceneManager.h"
+#include "JResources.h"
+
 JApplication::JApplication()
 	: mHwnd(nullptr)
 	, mHdc(nullptr)
@@ -52,6 +54,17 @@ void JApplication::Render()
 	JSceneManager::Render(mBackHdc);
 
 	copyReanderTarget(mBackHdc, mHdc);
+}
+
+void JApplication::Destroy()
+{
+	JSceneManager::Destroy();
+}
+
+void JApplication::Release()
+{
+	//JSceneManager::Release();	
+	//JResources::Release();
 }
 
 inline void JApplication::clearReanderTarget()

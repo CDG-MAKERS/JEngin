@@ -34,6 +34,12 @@
     <ClInclude Include="JPlayerScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="JCat.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="JCatScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JPlayScene.cpp">
@@ -46,6 +52,12 @@
       <Filter>Contents</Filter>
     </ClCompile>
     <ClCompile Include="JPlayerScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="JCat.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="JCatScript.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>

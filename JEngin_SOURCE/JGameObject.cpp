@@ -5,13 +5,15 @@
 JGameObject::JGameObject()
 {
 	mComponents.resize((UINT)enums::eComponentType::End);
-	initTransform();
+	initializeTransform();
 }
 JGameObject::~JGameObject()
 {
 	//오브젝트가 날라갈때 할당 해제
 	for (JComponent* comp : mComponents)
 	{
+		if (comp == nullptr)
+			continue;
 		delete comp;
 		comp = nullptr;	//디버깅 체크
 	}
@@ -44,9 +46,9 @@ void JGameObject::LateUpdate()
 		comp->LateUpdate();
 	}
 }
+
 void JGameObject::Render(HDC hdc)
 {
-
 	for (JComponent* comp : mComponents)
 	{
 		if (comp == nullptr) continue;
@@ -54,7 +56,15 @@ void JGameObject::Render(HDC hdc)
 	}
 }
 
-void JGameObject::initTransform()
+void JGameObject::Destroy()
+{
+	std::vector<JGameObject*> deleteObjects = {};
+	//findDeadGameObjects(deleteObjects);
+	//eraseGameObject();
+	//deleteGameObjects(deleteObjects);
+}
+
+void JGameObject::initializeTransform()
 {
 	AddComponent<JTransform>();
 }

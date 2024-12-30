@@ -32,8 +32,11 @@ void JCamera::Update()
 		JTransform* tr = mTarget->GetComponent<JTransform>();
 		mLookPosition = tr->GetPosition();
 	}
-	JTransform* cameraTr = GetOwner()->GetComponent<JTransform>();
-	mLookPosition = cameraTr->GetPosition();
+	else
+	{
+		JTransform* cameraTr = GetOwner()->GetComponent<JTransform>();
+		mLookPosition = cameraTr->GetPosition();
+	}
 	mDistance = mLookPosition - (mResolution / 2.0f);
 }
 

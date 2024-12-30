@@ -12,6 +12,10 @@ public:
 	virtual void Update()			override;
 	virtual void LateUpdate()		override;
 	virtual void Render(HDC hdc)	override;
+
+	virtual void OnCollisionEnter(class JCollider* other);
+	virtual void OnCollisionStay(class JCollider* other);
+	virtual void OnCollisionExit(class JCollider* other);
 private:
 
 };

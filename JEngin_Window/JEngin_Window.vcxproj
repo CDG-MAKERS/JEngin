@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="JCat.h" />
+    <ClInclude Include="JCatScript.h" />
     <ClInclude Include="JLoadResources.h" />
     <ClInclude Include="JLoadScenes.h" />
     <ClInclude Include="JPlayer.h" />
@@ -27,6 +29,8 @@
     <ClInclude Include="JTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="JCat.cpp" />
+    <ClCompile Include="JCatScript.cpp" />
     <ClCompile Include="JPlayer.cpp" />
     <ClCompile Include="JPlayerScript.cpp" />
     <ClCompile Include="JPlayScene.cpp" />
@@ -127,6 +131,8 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>

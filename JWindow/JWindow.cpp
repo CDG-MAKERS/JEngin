@@ -32,6 +32,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 {
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
+    //메모리 누수 탐지 lv17 참조
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
     // TODO: 여기에 코드를 입력합니다.
 
@@ -51,17 +53,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     MSG msg;
 
     // 기본 메시지 루프입니다:
-    /*
-    * GetMessage 메시지를 기다리기 때문에 게임에 적합하지 않음
-    while (GetMessage(&msg, nullptr, 0, 0))
-    {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-        {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
-        }
-    }
-    */
+    //GetMessage 메시지를 기다리기 때문에 게임에 적합하지 않음
     for (;;)
     {
         if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
@@ -83,6 +75,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     }
 
     Gdiplus::GdiplusShutdown(gpToken); //gdiplus 종료 메모리 해제
+    application.Release();
     return (int) msg.wParam;
 
 }
@@ -147,7 +140,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    //Load Scenes
    JLoadResources(); // 리소스를 먼저 로드 해야 씬에서 사용가능
    JLoadScenes();
-
    return TRUE;
 }
 

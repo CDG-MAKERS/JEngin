@@ -19,8 +19,8 @@ void JTitleScene::Initialize()
 		(enums::eLayerType::BackGround);
 	JSpriteRenderer* bgSr
 		= bg->AddComponent<JSpriteRenderer>();
-	graphcis::JTexture* bgTexture =
-		JResources::Find<graphcis::JTexture>(L"Title");
+	graphics::JTexture* bgTexture =
+		JResources::Find<graphics::JTexture>(L"Title");
 	bgSr->SetTexture(bgTexture);
 	JScene::Initialize();
 }

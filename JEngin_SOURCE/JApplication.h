@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CommonInclude.h"
+#include "JGameObject.h"
 
 
 class JApplication
@@ -16,10 +16,13 @@ public:
 	void Update();
 	void LateUpdate();
 	void Render();
+	void Destroy();
+	void Release();
 
-	HDC GetHdc() { return mHdc; }
-	UINT GetWidth() { return mWidth; }
-	UINT GetHeight() { return mHeight; }
+	HWND	GetHwnd()		{ return mHwnd; }
+	HDC		GetHdc()		{ return mHdc; }
+	UINT	GetWidth()		{ return mWidth; }
+	UINT	GetHeight()		{ return mHeight; }
 private:
 	inline void clearReanderTarget();
 	inline void copyReanderTarget(HDC source, HDC dest);
@@ -34,9 +37,5 @@ private:
 
 	UINT	mWidth;
 	UINT	mHeight;
-
-
-	//std::vector<JGameObject*>	mGameObjects;
-	//std::vector<SceneMenager*> mSceneMenager
 };
 

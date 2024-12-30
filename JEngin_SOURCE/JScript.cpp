@@ -1,4 +1,5 @@
 #include "JScript.h"
+#include "JCollider.h"
 
 JScript::JScript()
 	: JComponent(enums::eComponentType::Script)
@@ -22,5 +23,17 @@ void JScript::LateUpdate()
 }
 
 void JScript::Render(HDC hdc)
+{
+}
+
+void JScript::OnCollisionEnter(JCollider* other)
+{
+}
+
+void JScript::OnCollisionStay(JCollider* other)
+{
+}
+
+void JScript::OnCollisionExit(JCollider* other)
 {
 }

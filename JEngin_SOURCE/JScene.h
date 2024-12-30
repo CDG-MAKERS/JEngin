@@ -12,6 +12,7 @@ public:
 	virtual void Update();
 	virtual void LateUpdate();
 	virtual void Render(HDC hdc);
+	virtual void Destroy();
 
 	//¾À ÀÌµ¿¿ë
 	virtual void OnEnter();

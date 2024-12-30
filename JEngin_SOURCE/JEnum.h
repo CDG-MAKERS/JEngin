@@ -5,8 +5,10 @@ namespace enums
 	enum class eComponentType
 	{
 		Transform,
-		SpriteRenderer,
+		Colider,
 		Script,
+		SpriteRenderer,
+		Animator,
 		Camera,
 		End,
 
@@ -19,6 +21,7 @@ namespace enums
 		Character,
 		Monter,
 		Player,
+		Particle,
 		Max = 16,
 	};
 
@@ -26,6 +29,7 @@ namespace enums
 	{
 		Texture,
 		AudioClip,
+		Animation,
 		Prefab,
 		End,
 	};

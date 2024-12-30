@@ -1,6 +1,7 @@
 #pragma once
 #include "CommonInclude.h"
 
+using namespace JMath;
 
 class JEntity
 {

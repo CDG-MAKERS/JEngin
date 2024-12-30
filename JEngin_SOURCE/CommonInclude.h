@@ -1,11 +1,15 @@
 #pragma once
 #include <Windows.h>
 #include <assert.h>
+#include <iostream>
+
 #include <vector>
+#include <algorithm>
 #include <string>
 #include <map>
-
-#include "JMath.h"
+#include <bitset>
+#include <functional>
+#include <filesystem>
 
 #include <mmsystem.h>
 #include <dinput.h>
@@ -16,3 +20,4 @@
 #pragma comment(lib, "gdiplus.lib");
 
 #include "JEnum.h"
+#include "JMath.h"

@@ -14,10 +14,10 @@ public:
 	void LateUpdate()  override;
 	void Render(HDC hdc)  override;
 
-	void SetTexture(graphcis::JTexture* texture) { mTexture = texture; }
+	void SetTexture(graphics::JTexture* texture) { mTexture = texture; }
 	void SetSize(JMath::Vector2 Size) { mSize = Size; }
 private:
-	graphcis::JTexture* mTexture;
+	graphics::JTexture* mTexture;
 	JMath::Vector2 mSize;
 };
 

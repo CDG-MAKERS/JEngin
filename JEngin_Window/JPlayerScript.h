@@ -3,6 +3,14 @@
 class JPlayerScript : public JScript
 {
 public:
+	enum class eState
+	{
+		SitDown,
+		Walk,
+	//	Sleep,
+	//	Attack,
+	};
+
 	JPlayerScript();
 	~JPlayerScript();
 
@@ -11,5 +19,10 @@ public:
 	virtual void LateUpdate()		override;
 	virtual void Render(HDC hdc)	override;
 private:
+	void move();
+	void sitDown();
+private:
+	eState mState;
+	class JAnimator* mAnimator;
 };
 
