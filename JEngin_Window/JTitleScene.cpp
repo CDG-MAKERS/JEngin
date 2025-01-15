@@ -15,13 +15,6 @@ JTitleScene::~JTitleScene()
 
 void JTitleScene::Initialize()
 {
-	JGameObject* bg = object::Instantiate<JGameObject>
-		(enums::eLayerType::BackGround);
-	JSpriteRenderer* bgSr
-		= bg->AddComponent<JSpriteRenderer>();
-	graphics::JTexture* bgTexture =
-		JResources::Find<graphics::JTexture>(L"Title");
-	bgSr->SetTexture(bgTexture);
 	JScene::Initialize();
 }
 
@@ -45,4 +38,14 @@ void JTitleScene::Render(HDC hdc)
 
 	wchar_t str[50] = L"Title Scene";
 	TextOut(hdc, 0, 0, str, 11);
+}
+
+void JTitleScene::OnEnter()
+{
+	JScene::OnEnter();
+}
+
+void JTitleScene::OnExit()
+{
+	JScene::OnExit();
 }

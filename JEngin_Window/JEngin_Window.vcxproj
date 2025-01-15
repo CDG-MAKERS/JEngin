@@ -26,7 +26,9 @@
     <ClInclude Include="JPlayer.h" />
     <ClInclude Include="JPlayerScript.h" />
     <ClInclude Include="JPlayScene.h" />
+    <ClInclude Include="JTile.h" />
     <ClInclude Include="JTitleScene.h" />
+    <ClInclude Include="JToolScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JCat.cpp" />
@@ -34,7 +36,9 @@
     <ClCompile Include="JPlayer.cpp" />
     <ClCompile Include="JPlayerScript.cpp" />
     <ClCompile Include="JPlayScene.cpp" />
+    <ClCompile Include="JTile.cpp" />
     <ClCompile Include="JTitleScene.cpp" />
+    <ClCompile Include="JToolScene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

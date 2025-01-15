@@ -24,6 +24,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JCollider.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JCollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JComponent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JDontDestroyOnLoad.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JEnum.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JGameObject.h" />
@@ -38,6 +39,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JSpriteRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JTilemapRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JTransform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JTexture.h" />
@@ -52,6 +54,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JCollider.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JCollisionManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JComponent.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JDontDestroyOnLoad.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JInput.cpp" />
@@ -65,6 +68,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JTexture.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JTilemapRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JTransform.cpp" />
   </ItemGroup>

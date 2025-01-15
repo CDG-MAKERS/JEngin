@@ -2,8 +2,12 @@
 #include "JGameObject.h"
 #include "JScript.h"
 
-JCollider::JCollider()
+
+UINT JCollider::CollisionID = 1;
+
+JCollider::JCollider(eColliderType type)
 	: JComponent(enums::eComponentType::Colider)
+	, mType(type)
 	, mID(CollisionID++)
 	, mSize(Vector2::One)
 {

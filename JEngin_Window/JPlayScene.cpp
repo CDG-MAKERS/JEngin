@@ -15,7 +15,10 @@
 #include "JAnimator.h"
 #include "JCat.h"
 #include "JCatScript.h"
+#include "JBoxCollider2D.h"
+#include "JCollisionManager.h"
 
+#pragma warning(disable: 26495)
 JPlayScene::JPlayScene()
 {
 }
@@ -26,67 +29,52 @@ JPlayScene::~JPlayScene()
 
 void JPlayScene::Initialize()
 {
+	JCollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
+
 	// main camera
 	JGameObject* camera = object::Instantiate<JGameObject>(enums::eLayerType::None, Vector2(810.0f, 460.0f));
 	JCamera* cameraComp = camera->AddComponent<JCamera>();
 	JRenderer::mainCamera = cameraComp;
 
 	mPlayer = object::Instantiate<JPlayer>(enums::eLayerType::Player, Vector2(800.0f, 450.0f));
-	mPlayer->AddComponent<JPlayerScript>();
+	object::DontDestroyOnLoad(mPlayer);
 
-	graphics::JTexture* marioTexture =
+	JPlayerScript* plScript = mPlayer->AddComponent<JPlayerScript>();
+	JBoxCollider2D* collider = mPlayer->AddComponent<JBoxCollider2D>();
+	collider->SetOffset(Vector2(-50.0f, -50.0));
+
+	graphics::JTexture* playerMan =
 		JResources::Find<graphics::JTexture>(L"Character");
 	JAnimator* animator = mPlayer->AddComponent<JAnimator>();
-	animator->CreateAnimation(L"CharacterFrontMove", marioTexture
+	animator->CreateAnimation(L"CharacterFrontMove", playerMan
 		, Vector2(0.0f, 0.0f), Vector2(34.0f, 48.0f), Vector2::Zero
 		, 4, 0.5f);
-	animator->CreateAnimation(L"CharacterLeftMove", marioTexture
+	animator->CreateAnimation(L"CharacterLeftMove", playerMan
 		, Vector2(0.0f, 48.0f), Vector2(34.0f, 48.0f), Vector2::Zero
 		, 4, 0.5f);
-	animator->CreateAnimation(L"CharacterRightMove", marioTexture
+	animator->CreateAnimation(L"CharacterRightMove", playerMan
 		, Vector2(0.0f, 96.0f), Vector2(34.0f, 48.0f), Vector2::Zero
 		, 4, 0.5f);
-	animator->CreateAnimation(L"CharacterBottomMove", marioTexture
+	animator->CreateAnimation(L"CharacterBottomMove", playerMan
 		, Vector2(0.0f, 144.0f), Vector2(34.0f, 48.0f), Vector2::Zero
 		, 4, 0.5f);
 	animator->PlayAnimation(L"CharacterFrontMove", true);
 
-	JCat* cat = object::Instantiate<JCat>(enums::eLayerType::Monter);
+
+	JCat* cat = object::Instantiate<JCat>(enums::eLayerType::Animal);
+	//cat->SetActive(true);
 	cat->AddComponent<JCatScript>();
 	//cameraComp->SetTarget(cat);
 	graphics::JTexture* catTex = JResources::Find<graphics::JTexture>(L"Cat");
 	JAnimator* catAnimator = cat->AddComponent<JAnimator>();
-	
-	catAnimator->CreateAnimation(L"DownWalk", catTex
-		, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-	catAnimator->CreateAnimation(L"RightWalk", catTex
-		, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-	catAnimator->CreateAnimation(L"UpWalk", catTex
-		, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-	catAnimator->CreateAnimation(L"LeftWalk", catTex
-		, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-	catAnimator->CreateAnimation(L"SitDown", catTex
-		, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-	catAnimator->CreateAnimation(L"Grooming", catTex
-		, Vector2(0.0f, 160.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-	catAnimator->CreateAnimation(L"LayDown", catTex
-		, Vector2(0.0f, 192.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+	JBoxCollider2D* boxCatCollider = cat->AddComponent<JBoxCollider2D>();
+	boxCatCollider->SetOffset(Vector2(-50.0f, -50.0f));
+	catAnimator->CreateAnimationByFolder(L"MushroomIdle", L"..\\Resources\\Mushroom", Vector2::Zero, 0.1f);
+	catAnimator->PlayAnimation(L"MushroomIdle", true);
 
-	catAnimator->PlayAnimation(L"SitDown", false);
 	cat->GetComponent<JTransform>()->SetPosition(Vector2(200.0f, 200.0f));
-	cat->GetComponent<JTransform>()->SetScale(Vector2(2.0f, 2.0f));
-
-	JGameObject* bg = object::Instantiate<JGameObject>
-		(enums::eLayerType::BackGround);
-	JSpriteRenderer* bgSr
-		= bg->AddComponent<JSpriteRenderer>();
-	graphics::JTexture* bgTexture =
-		JResources::Find<graphics::JTexture>(L"Map");
-	bgSr->SetTexture(bgTexture);
-		
+	cat->GetComponent<JTransform>()->SetScale(Vector2(1.0f, 1.0f));
 	JScene::Initialize();
-
-
 }
 
 void JPlayScene::Update()
@@ -116,7 +104,4 @@ void JPlayScene::OnEnter()
 
 void JPlayScene::OnExit()
 {
-	//JTransform* tr
-	//	= bg->GetComponent<JTransform>();
-	//tr->SetPosition(Vector2(0, 0));
 }

@@ -5,10 +5,11 @@ class JPlayerScript : public JScript
 public:
 	enum class eState
 	{
-		SitDown,
+		Idle,
 		Walk,
-	//	Sleep,
-	//	Attack,
+		Sleep,
+		GiveWater,
+		Attack,
 	};
 
 	JPlayerScript();
@@ -18,9 +19,15 @@ public:
 	virtual void Update()			override;
 	virtual void LateUpdate()		override;
 	virtual void Render(HDC hdc)	override;
+
+	void AttackEffect();
+
+	void OnCollisionEnter(JCollider* other) override;
+	void OnCollisionStay(JCollider* other) override;
+	void OnCollisionExit(JCollider* other) override;
 private:
 	void move();
-	void sitDown();
+	void idle();
 private:
 	eState mState;
 	class JAnimator* mAnimator;

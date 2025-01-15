@@ -12,6 +12,7 @@ namespace object
 	static T* Instantiate(enums::eLayerType type)
 	{
 		T* gameObject = new T();
+		gameObject->SetLayerType(type);
 		JScene* activeScene = JSceneManager::GetActiveScene();
 		JLayer* layer = activeScene->GetLayer(type);
 		layer->AddGameObject(gameObject);
@@ -23,6 +24,7 @@ namespace object
 	static T* Instantiate(enums::eLayerType type, JMath::Vector2 position)
 	{
 		T* gameObject = new T();
+		gameObject->SetLayerType(type);
 		JScene* activeScene = JSceneManager::GetActiveScene();
 		JLayer* layer = activeScene->GetLayer(type);
 		layer->AddGameObject(gameObject);
@@ -31,5 +33,15 @@ namespace object
 		tr->SetPosition(position);
 
 		return gameObject;
+	}
+
+	static void DontDestroyOnLoad(JGameObject* gameObject)
+	{
+		JScene* activeScene = JSceneManager::GetActiveScene();
+		// 현재씬에서 게임오브젝트를 지워준다.
+		activeScene->EraseGameObject(gameObject);
+		// 해당 게임오브젝트를 -> DontDestroy씬으로 넣어준다.
+		JScene* dontDestroyOnLoad = JSceneManager::GetDontDestroyOnLoad();
+		dontDestroyOnLoad->AddGameObject(gameObject, gameObject->GetLayerType());
 	}
 }

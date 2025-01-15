@@ -1,10 +1,11 @@
 #pragma once
 #include "JComponent.h"
 
+
 class JCollider : public JComponent
 {
 public:
-	JCollider();
+	JCollider(eColliderType type);
 	~JCollider();
 
 	virtual void Initialize();
@@ -21,6 +22,7 @@ public:
 	UINT32 GetID() { return mID; }
 	Vector2 GetSize() { return mSize; }
 	void SetSize(Vector2 size) { mSize = size; }
+	eColliderType GetColliderType() { return mType; }
 
 private:
 	static UINT CollisionID;
@@ -30,5 +32,6 @@ private:
 	Vector2 mSize;
 
 	//Charcater type;
+	eColliderType mType;
 };
 

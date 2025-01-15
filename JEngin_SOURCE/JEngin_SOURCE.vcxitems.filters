@@ -65,6 +65,10 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JBoxCollider2D.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JCircleCollider2D.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JCollider.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JDontDestroyOnLoad.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JTilemapRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
@@ -140,6 +144,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JBoxCollider2D.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JCircleCollider2D.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JCollider.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JDontDestroyOnLoad.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JTilemapRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">

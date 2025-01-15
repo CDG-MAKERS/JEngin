@@ -4,11 +4,15 @@
 #include "JTime.h"
 #include "JGameObject.h"
 #include "JAnimator.h"
+#include "JObject.h"
 
 JCatScript::JCatScript()
 	: mState(JCatScript::eState::SitDown)
 	, mAnimator(nullptr)
 	, mTime(0.0f)
+	, mDeathTime(0.0f)
+	, mDest(Vector2::Zero)
+	, mRadian(0.0f)
 {
 }
 
@@ -22,6 +26,11 @@ void JCatScript::Initialize()
 
 void JCatScript::Update()
 {
+	mDeathTime += JTime::DeltaTime();
+	if (mDeathTime > 6.0f)
+	{
+		//object::Destory(GetOwner());
+	}
 	if (mAnimator == nullptr)
 	{
 		mAnimator = GetOwner()->GetComponent<JAnimator>();
@@ -30,7 +39,7 @@ void JCatScript::Update()
 	switch (mState)
 	{
 	case JCatScript::eState::SitDown:
-		sitDown();
+		idle();
 		break;
 	case JCatScript::eState::Walk:
 		move();
@@ -56,17 +65,57 @@ void JCatScript::Render(HDC hdc)
 {
 }
 
-void JCatScript::sitDown()
+void JCatScript::idle()
 {
 	mTime += JTime::DeltaTime();
-	if (mTime > 3.0f)
+	//if (mTime > 3.0f)
+	//{
+	//	mState = JCatScript::eState::Walk;
+	//	int direction = (rand() % 4);
+	//	mDirection = (eDirection)direction;
+	//	PlayWalkAnimationByDirection(mDirection);
+	//	mTime = 0.0f;
+	//}
+	JTransform* tr = GetOwner()->GetComponent<JTransform>();
+	Vector2 pos = tr->GetPosition();
+
+	// 마우스 위치 이동 ( 벡터의 뺄셈 활용 )
+	//Transform* plTr = mPlayer->GetComponent<Transform>();
+	//Vector2 dest = mDest - plTr->GetPosition();
+	//pos += dest.normalize() * (100.0f * Time::DeltaTime());
+
+
+	// 삼각함수를 통한 이동
+
+	//mRadian += 5.0f * JTime::DeltaTime();
+	//pos += Vector2(1.0f, 2.0f * cosf(mRadian)) * (100.0f * JTime::DeltaTime());
+
+
+	// 마우스 위치 방향으로 회전후 마우스 위치 이동 ( 벡터의 뺄셈 활용 )
+	//JTransform* plTr = mPlayer->GetComponent<JTransform>();
+	//Vector2 dest = mDest - plTr->GetPosition();
+	//dest.normalize();
+
+	//float rotDegree = Vector2::Dot(dest, Vector2::Right); //cos세타
+	//rotDegree = acosf(rotDegree);
+
+	//rotDegree = ConvertDegree(rotDegree);
+
+	//pos += dest * (100.0f * JTime::DeltaTime());
+
+	//tr->SetPosition(pos);
+
+
+
+
+	/*if (mTime > 3.0f)
 	{
-		mState = JCatScript::eState::Walk;
+		mState = CatScript::eState::Walk;
 		int direction = (rand() % 4);
 		mDirection = (eDirection)direction;
 		PlayWalkAnimationByDirection(mDirection);
 		mTime = 0.0f;
-	}
+	}*/
 }
 
 void JCatScript::move()

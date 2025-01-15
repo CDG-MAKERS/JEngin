@@ -19,7 +19,10 @@ public:
 	virtual void OnExit();
 
 	void AddGameObject(JGameObject* gameObj, const enums::eLayerType type);
+	void EraseGameObject(JGameObject* gameObj);
+
 	JLayer* GetLayer(const enums::eLayerType type) { return mLayers[(UINT)type]; }
+
 private:
 	std::vector<JLayer*> mLayers;
 };

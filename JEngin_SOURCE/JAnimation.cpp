@@ -52,7 +52,7 @@ void JAnimation::Render(HDC hdc)
     JGameObject* gameObj = mAnimator->GetOwner();
     JTransform* tr = gameObj->GetComponent<JTransform>();
     Vector2 pos = tr->GetPosition();
-    float rot = tr->GetRotation();
+    float rot = tr->GetRoation();
     Vector2 scale = tr->GetScale();
 
     if (JRenderer::mainCamera)
@@ -64,30 +64,48 @@ void JAnimation::Render(HDC hdc)
     graphics::JTexture::eTextureType type = mTexture->GetTextureType();
     if (type == graphics::JTexture::eTextureType::Bmp)
     {
-#ifdef ALPHA_Y
-        BLENDFUNCTION func = {};
-        func.BlendOp = AC_SRC_OVER;
-        func.BlendFlags = 0;
-        func.AlphaFormat = AC_SRC_ALPHA;
-        func.SourceConstantAlpha = 255; // 0불투 255 투
 
-        HDC imgHdc = mTexture->GetHdc();
-        AlphaBlend(hdc, pos.x, pos.y, sprite.size.x, sprite.size.y
-            , imgHdc, sprite.leftTop.x, sprite.leftTop.y
-            , sprite.size.x, sprite.size.y, func);
-#else
         pos = JRenderer::mainCamera->CaluatePosition(pos);
 
         HDC imgHdc = mTexture->GetHdc();
-        TransparentBlt(hdc
-            , pos.x - (sprite.size.x / 2.0f)
-            , pos.y - (sprite.size.y / 2.0f)
-            , sprite.size.x * scale.x
-            , sprite.size.y * scale.y
-            , imgHdc, sprite.leftTop.x, sprite.leftTop.y
-            , sprite.size.x, sprite.size.y
-            , RGB(255, 0, 255));
-#endif
+
+        if (mTexture->IsAlpha())
+        {
+            BLENDFUNCTION func = {};
+            func.BlendOp = AC_SRC_OVER;
+            func.BlendFlags = 0;
+            func.AlphaFormat = AC_SRC_ALPHA;
+            func.SourceConstantAlpha = 255; // 0불투 255 투
+
+            HDC imgHdc = mTexture->GetHdc();
+            AlphaBlend(hdc
+                , pos.x - (sprite.size.x / 2.0f) + sprite.offset.x
+                , pos.y - (sprite.size.y / 2.0f) + sprite.offset.y
+                , sprite.size.x * scale.x
+                , sprite.size.y * scale.y
+                , imgHdc
+                , sprite.leftTop.x
+                , sprite.leftTop.y
+                , sprite.size.x
+                , sprite.size.y
+                , func);
+            Rectangle(hdc, pos.x, pos.y, pos.x + 10, pos.y + 10);
+        }
+        else 
+        {
+            TransparentBlt(hdc
+                , pos.x - (sprite.size.x / 2.0f) + sprite.offset.x
+                , pos.y - (sprite.size.y / 2.0f) + sprite.offset.y
+                , sprite.size.x * scale.x
+                , sprite.size.y * scale.y
+                , imgHdc
+                , sprite.leftTop.x
+                , sprite.leftTop.y
+                , sprite.size.x
+                , sprite.size.y
+                , RGB(255, 0, 255));
+            Rectangle(hdc, pos.x, pos.y, pos.x + 10, pos.y + 10);
+        }
     }
     else if (type == graphics::JTexture::eTextureType::Png)
     {

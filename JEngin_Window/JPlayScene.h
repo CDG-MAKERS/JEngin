@@ -15,6 +15,7 @@ public:
 	void OnExit()			override;
 
 private:
-	class JPlayer* mPlayer;
+
+	class JPlayer* mPlayer;	//Initialize in function
 };
 

@@ -11,7 +11,7 @@ enum class eKeyState
 
 enum class eKeyCode
 {
-	q, w, e, r, t, y, u, i, o, p, a, s, d, f, g, h, j, k, l, z, x, c, v, b, n, m,
+	Q, W, e, r, t, y, u, i, o, p, A, S, D, f, g, h, j, k, l, z, x, c, v, b, n, m,
 	Left, Right, Down, Up, 
 	LButton, MButton, RButton, 
 	end
@@ -50,5 +50,5 @@ private:
 
 private:
 	static std::vector<Key> Keys;
-	static JMath::Vector2 mMousePosition;
+	static JMath::Vector2	mMousePosition;
 };

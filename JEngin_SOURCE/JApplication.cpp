@@ -3,6 +3,7 @@
 #include "JTime.h"
 #include "JSceneManager.h"
 #include "JResources.h"
+#include "JCollisionManager.h"
 
 JApplication::JApplication()
 	: mHwnd(nullptr)
@@ -26,6 +27,7 @@ void JApplication::Initialize(HWND hwnd, UINT width,UINT height)
 	JInput::Initailize();
 	JTime::Initailize();
 
+	JCollisionManager::Initialize();
 	JSceneManager::Initialize();
 }
 
@@ -39,11 +41,12 @@ void JApplication::Update()
 {
 	JInput::Update();
 	JTime::Update();
-
+	JCollisionManager::Update();
 	JSceneManager::Update();
 }
 void JApplication::LateUpdate()
 {
+	JCollisionManager::LateUpdate();
 	JSceneManager::LateUpdate();
 }
 void JApplication::Render()
@@ -51,6 +54,8 @@ void JApplication::Render()
 	clearReanderTarget();
 
 	JTime::Render(mBackHdc);
+
+	JCollisionManager::Render(mBackHdc);
 	JSceneManager::Render(mBackHdc);
 
 	copyReanderTarget(mBackHdc, mHdc);
@@ -69,7 +74,12 @@ void JApplication::Release()
 
 inline void JApplication::clearReanderTarget()
 {
+	HBRUSH grayBrush = (HBRUSH)CreateSolidBrush(RGB(128, 128, 128));
+	HBRUSH oldBrush = (HBRUSH)SelectObject(mBackHdc, grayBrush);
 	Rectangle(mBackHdc, -1, -1, 1601, 901);
+
+	(HBRUSH)SelectObject(mBackHdc, oldBrush);
+	DeleteObject(grayBrush);
 }
 
 inline void JApplication::copyReanderTarget(HDC source, HDC dest)

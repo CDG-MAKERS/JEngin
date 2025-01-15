@@ -18,8 +18,9 @@ namespace enums
 	{
 		None,
 		BackGround,
-		Character,
-		Monter,
+		Tile,
+		//character
+		Animal,
 		Player,
 		Particle,
 		Max = 16,
@@ -31,6 +32,13 @@ namespace enums
 		AudioClip,
 		Animation,
 		Prefab,
+		End,
+	};
+
+	enum class eColliderType
+	{
+		Circle2D,
+		Rect2D,
 		End,
 	};
 }

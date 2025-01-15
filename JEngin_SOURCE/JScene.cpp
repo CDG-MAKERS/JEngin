@@ -63,3 +63,9 @@ void JScene::AddGameObject(JGameObject* gameObj, const enums::eLayerType type)
 	mLayers[(UINT)type]->AddGameObject(gameObj);
 }
 
+void JScene::EraseGameObject(JGameObject* gameObj)
+{
+	eLayerType layerType = gameObj->GetLayerType();
+	mLayers[(UINT)layerType]->EraseGameObject(gameObj);
+}
+

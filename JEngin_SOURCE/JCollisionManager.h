@@ -27,7 +27,7 @@ public:
 	static void Render(HDC hdc);
 
 	static void CollisionLayerCheck(eLayerType left, eLayerType right, bool enable);
-	static void LayerCollision(class Scene* scene, eLayerType left, eLayerType right);
+	static void LayerCollision(class JScene* scene, eLayerType left, eLayerType right);
 	static void ColliderCollision(JCollider* left, JCollider* right);
 	static bool Intersect(JCollider* left, JCollider* right);
 

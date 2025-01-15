@@ -21,6 +21,7 @@ public:
 
 	static JScene* LoadScene(const std::wstring& name);
 	static JScene* GetActiveScene() { return mActiveScene; }
+	static JScene* GetDontDestroyOnLoad() { return mDontDestroyOnLoad; }
 
 	static void Initialize();
 	static void Update();
@@ -28,10 +29,10 @@ public:
 	static void Render(HDC hdc);
 	static void Destroy();
 	static void Release();
+
 private:
-	//배열보다 트리 log2
-	//static std::vector<JScene*> mScene;
 	static std::map<const std::wstring, JScene*> mScene;
 	static JScene* mActiveScene;
+	static JScene* mDontDestroyOnLoad;
 };
 

@@ -3,6 +3,8 @@
 #include "JTime.h"
 #include "JTransform.h"
 JGameObject::JGameObject()
+	: mState(eState::Active)
+	, mLayerType(eLayerType::None)
 {
 	mComponents.resize((UINT)enums::eComponentType::End);
 	initializeTransform();

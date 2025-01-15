@@ -40,6 +40,10 @@
     <ClInclude Include="JCatScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="JTile.h" />
+    <ClInclude Include="JToolScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JPlayScene.cpp">
@@ -59,6 +63,10 @@
     </ClCompile>
     <ClCompile Include="JCatScript.cpp">
       <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="JTile.cpp" />
+    <ClCompile Include="JToolScene.cpp">
+      <Filter>Scenes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

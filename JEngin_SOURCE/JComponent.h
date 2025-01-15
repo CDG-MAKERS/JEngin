@@ -1,6 +1,7 @@
 #pragma once
 
 #include "JEntity.h"
+using namespace enums;
 
 class JGameObject;	//순환참조 조심
 class JComponent : public JEntity

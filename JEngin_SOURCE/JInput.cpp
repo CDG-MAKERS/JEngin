@@ -25,7 +25,6 @@ void JInput::Initailize()
 void JInput::Update()
 {
 	updateKeys();
-
 }
 
 
@@ -66,25 +65,6 @@ void JInput::updateKey(JInput::Key& key)
 	{
 		clearKeys();
 	}
-	//키가 눌렀는지 아닌지
-	/*if (GetAsyncKeyState(ASCII[keyNum]) & 0x8000)
-	{
-		if (Keys[keyNum].bPressed == true)
-			Keys[keyNum].state = eKeyState::Pressed;
-		else
-			Keys[keyNum].state = eKeyState::Down;
-
-		Keys[keyNum].bPressed = true;
-	}
-	else
-	{
-		if (Keys[keyNum].bPressed == true)
-			Keys[keyNum].state = eKeyState::Up;
-		else
-			Keys[keyNum].state = eKeyState::None;
-
-		Keys[keyNum].bPressed = false;
-	}*/
 }
 
 bool JInput::isKeyDown(eKeyCode code)

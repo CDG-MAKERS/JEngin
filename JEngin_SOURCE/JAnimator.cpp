@@ -91,7 +91,7 @@ void JAnimator::CreateAnimationByFolder(const std::wstring& name, const std::wst
 	int fileCount = 0;
 	std::filesystem::path fs(path);
 	std::vector<graphics::JTexture*> images = {};
-	for (auto& p : std::filesystem::recursive_directory_iterator(fs))
+	for (auto& p : std::filesystem::recursive_directory_iterator(fs)) //폴더내 파일을 이터레이터로 사용
 	{
 		std::wstring fileName = p.path().filename();
 		std::wstring fullName = p.path();

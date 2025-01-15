@@ -31,8 +31,10 @@ public:
 	void LateUpdate() override;
 	void Render(HDC hdc) override;
 
+	void SetPlayer(JGameObject* player) { mPlayer = player; }
+	Vector2 mDest;
 private:
-	void sitDown();
+	void idle();
 	void move();
 	void layDown();
 
@@ -44,5 +46,8 @@ private:
 	class JAnimator* mAnimator;
 	eDirection mDirection;
 	float mTime;
+	float mDeathTime;
 
+	JGameObject* mPlayer;
+	float mRadian;
 };

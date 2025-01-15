@@ -34,7 +34,7 @@ void JLayer::Update()
 	{
 		if (gameObj == nullptr)
 			continue;
-		JGameObject::eState state = gameObj->GetActive();
+		JGameObject::eState state = gameObj->GetState();
 		if (state == JGameObject::eState::Paused
 			|| state == JGameObject::eState::Dead)
 			continue;
@@ -49,7 +49,7 @@ void JLayer::LateUpdate()
 	{
 		if (gameObj == nullptr)
 			continue;
-		JGameObject::eState state = gameObj->GetActive();
+		JGameObject::eState state = gameObj->GetState();
 		if (state == JGameObject::eState::Paused
 			|| state == JGameObject::eState::Dead)
 			continue;
@@ -64,7 +64,7 @@ void JLayer::Render(HDC hdc)
 	{
 		if (gameObj == nullptr)
 			continue;
-		JGameObject::eState state = gameObj->GetActive();
+		JGameObject::eState state = gameObj->GetState();
 		if (state == JGameObject::eState::Paused
 			|| state == JGameObject::eState::Dead)
 			continue;
@@ -75,24 +75,10 @@ void JLayer::Render(HDC hdc)
 
 void JLayer::Destroy()
 {
-	for (GameObjectIter iter = mGameObjects.begin()
-		; iter != mGameObjects.end()
-		; )
-	{
-		JGameObject::eState active = (*iter)->GetActive();
-		if (active == JGameObject::eState::Dead)
-		{
-			JGameObject* deathObj = (*iter);
-			iter = mGameObjects.erase(iter);
-
-			delete deathObj;
-			deathObj = nullptr;
-
-			continue;
-		}
-
-		iter++;
-	}
+	std::vector<JGameObject*> deleteObjects = {};
+	findDeadGameObjects(deleteObjects);
+	eraseDeadGameObject();
+	deleteGameObjects(deleteObjects);
 }
 
 void JLayer::AddGameObject(JGameObject* gameObj)
@@ -101,4 +87,42 @@ void JLayer::AddGameObject(JGameObject* gameObj)
 		return;
 
 	mGameObjects.push_back(gameObj);
+}
+
+void JLayer::EraseGameObject(JGameObject* eraseGameObj)
+{
+	// std::erase() iter넣어줘서 해당 이터레이와 같은 객체 삭제
+	std::erase_if(mGameObjects,
+		[=](JGameObject* gameObj)
+		{
+			return gameObj == eraseGameObj;
+		});
+}
+
+void JLayer::findDeadGameObjects(OUT std::vector<JGameObject*>& gameObjs)
+{
+	for (JGameObject* gameObj : mGameObjects)
+	{
+		JGameObject::eState active = gameObj->GetState();
+		if (active == JGameObject::eState::Dead)
+			gameObjs.push_back(gameObj);
+	}
+}
+
+void JLayer::deleteGameObjects(std::vector<JGameObject*> deleteObjs)
+{
+	for (JGameObject* obj : deleteObjs)
+	{
+		delete obj;
+		obj = nullptr;
+	}
+}
+
+void JLayer::eraseDeadGameObject()
+{
+	std::erase_if(mGameObjects,
+		[](JGameObject* gameObj)
+		{
+			return (gameObj)->IsDead();
+		});
 }

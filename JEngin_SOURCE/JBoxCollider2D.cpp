@@ -1,9 +1,11 @@
 #include "JBoxCollider2D.h"
 #include "JTransform.h"
 #include "JGameObject.h"
+#include "JRenderer.h"
+#include "JCamera.h"
 
 JBoxCollider2D::JBoxCollider2D()
-	: JCollider()
+	: JCollider(enums::eColliderType::Rect2D)
 {
 }
 
@@ -27,6 +29,9 @@ void JBoxCollider2D::Render(HDC hdc)
 {
 	JTransform* tr = GetOwner()->GetComponent<JTransform>();
 	Vector2 pos = tr->GetPosition();
+
+	if (JRenderer::mainCamera)
+		pos = JRenderer::mainCamera->CaluatePosition(pos);
 
 	Vector2 offset = GetOffset();
 
